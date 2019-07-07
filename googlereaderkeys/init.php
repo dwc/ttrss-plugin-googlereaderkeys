@@ -18,23 +18,26 @@ class GoogleReaderKeysDWC extends Plugin {
 	 * See get_hotkeys_info in include/functions.php
 	 */
 	function hook_hotkey_map($hotkeys) {
+		 $hotkey_overrides = array(
+			"j" => "next_article_noscroll",
+			"k" => "prev_article_noscroll",
+			"n" => "next_article_noexpand",
+			"p" => "prev_article_noexpand",
+			"N" => "next_feed",
+			"P" => "prev_feed",
+			"V" => "open_in_new_window",
+			"r" => "feed_refresh",
+			"M" => "feed_catchup",
+			"m" => "toggle_unread",
+			"o" => "toggle_expand",
+			"(13)|enter" => "toggle_expand",
+			"*(191)|?" => "help_dialog",
+			"(32)|space" => "article_scroll_down",
+			"(38)|up" => "article_scroll_up",
+			"(40)|down" => "article_scroll_down",
+		);
 
-		$hotkeys["j"]		= "next_article_noscroll";
-		$hotkeys["k"]		= "prev_article_noscroll";
-		$hotkeys["n"]		= "next_article_noexpand";
-		$hotkeys["p"]		= "prev_article_noexpand";
-		$hotkeys["*n"]		= "next_feed";
-		$hotkeys["*p"]		= "prev_feed";
-		$hotkeys["*v"]		= "open_in_new_window";
-		$hotkeys["r"]		= "feed_refresh";
-		$hotkeys["*m"]		= "feed_catchup";
-		$hotkeys["m"]		= "toggle_unread";
-		$hotkeys["o"]		= "toggle_expand";
-		$hotkeys["(13)|enter"]	= "toggle_expand";
-		$hotkeys["*(191)|?"]    = "help_dialog";
-		$hotkeys["(32)|space"]	= "article_scroll_down";
-		$hotkeys["(38)|up"]	= "article_scroll_up";
-		$hotkeys["(40)|down"]	= "article_scroll_down";
+		$hotkeys = array_merge($hotkeys, $hotkey_overrides);
 
 		return $hotkeys;
 	}
