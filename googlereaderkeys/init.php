@@ -1,5 +1,5 @@
 <?php
-class GoogleReaderKeysDWC extends Plugin {
+class GoogleReaderKeys extends Plugin {
 	private $host;
 
 	function about() {
